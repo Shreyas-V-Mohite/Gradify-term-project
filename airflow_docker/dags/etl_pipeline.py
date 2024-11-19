@@ -41,7 +41,7 @@ with DAG(
         data = list(collection.find({}))
         df = pd.DataFrame(data)
         if "_id" in df.columns:
-            df.drop(columns=["_id"], inplace=True)#why are we dropping ids
+            df.drop(columns=["_id"], inplace=True)
 
         local_path = '/path/to/log_data.csv'
         df.to_csv(local_path, index=False)
@@ -64,7 +64,7 @@ with DAG(
         artists_df = log_data[['artist', 'location']].dropna().drop_duplicates().reset_index(drop=True)
         artists_df['artist_id'] = (artists_df.index + 1).astype('int64')
         artists_df = artists_df[['artist_id', 'artist', 'location']]
-        artists_df.rename(columns={'artist': 'name'}, inplace=True)#is this really needed
+        artists_df.rename(columns={'artist': 'name'}, inplace=True)
         artists_df.to_csv('/tmp/artists_table.csv', index=False)
         logging.info("Artists table saved as /tmp/artists_table.csv")
 
@@ -90,7 +90,7 @@ with DAG(
         # Create Time Table
         log_data['ts'] = pd.to_datetime(log_data['ts'], unit='ms')
         time_df = pd.DataFrame()
-        time_df['start_time'] = log_data['ts']#get explaination for this
+        time_df['start_time'] = log_data['ts']
         time_df['hour'] = log_data['ts'].dt.hour
         time_df['day'] = log_data['ts'].dt.day
         time_df['week'] = log_data['ts'].dt.isocalendar().week
