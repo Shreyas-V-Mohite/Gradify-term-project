@@ -65,7 +65,7 @@ The ETL pipeline involves the following steps:
 - **Rutuja**: Set up MongoDB Atlas and optimized data extraction scripts.
 - **Shreyas**: Designed schema transformations and managed data loading into Redshift.
 - **Shubham**: Configured Amazon S3 and created the Airflow DAG for managing the ETL process.
-- **Nitya**: Assisted with data extraction and validation in Redshift.
+- **Nitya**: Created Powerbi Dashboard and created report
 
 ## Future Implementation
 - **Machine Learning Integration**: Use the data in Amazon Redshift to train models for personalized recommendations.
